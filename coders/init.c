@@ -68,4 +68,21 @@ int	init_coders(t_data *data)
 	}
 	return (1);
 }
+int	init_coders(t_data *data)
+{
+	int	i;
 
+	i = 0;
+	while (i < data->num_coders)
+	{
+		data->coders[i].id = i + 1;
+		data->coders[i].state = 0;
+		data->coders[i].compiles_count = 0;
+		data->coders[i].last_compile_start = 0;
+		data->coders[i].data = data;
+		data->coders[i].left_dongle = i;
+		data->coders[i].right_dongle = (i + 1) % data->num_coders;
+		i++;
+	}
+	return (1);
+}
