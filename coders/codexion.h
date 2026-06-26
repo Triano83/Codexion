@@ -69,5 +69,7 @@ int	ft_atoi(const char *nptr);
 void enter_data(t_data *data, char **argv);
 int	allocate_resources(t_data *data);
 int	init_dongles(t_data *data);
+int	init_coders(t_data *data);
+long long	get_time_in_ms(void);
 
 #endif

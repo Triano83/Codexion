@@ -71,7 +71,6 @@ int	init_coders(t_data *data)
 int	init_coders(t_data *data)
 {
 	int	i;
-
 	i = 0;
 	while (i < data->num_coders)
 	{

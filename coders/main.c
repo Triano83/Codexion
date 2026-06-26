@@ -32,7 +32,7 @@ int	is_numeric_str(char *str)
 int	main(int argc, char **argv)
 {
 	int	i;
-
+	t_data data;
 	if (argc != 9)
 		return(printf("Error: Numero de argumentos invalidos\n"),1);
 	i = 1;
@@ -44,10 +44,9 @@ int	main(int argc, char **argv)
 	if (strcmp(argv[8], "fifo") != 0 && strcmp(argv[8], "edf") != 0)
 		return(printf("Error: El planificador debe ser 'fifo' o 'edf'\n"),1);
 	return (0);
-	t_data data;
 	enter_data(&data, argv);
 	if (!allocate_resources(&data))
 		return (printf("Error de memoria en malloc\n"), 1);
-	if (!init_dongles(&data))
-		return (printf("Error inicializando los dongles\n"), 1);
+	if (!init_dongles(&data) || !init_coders(&data))
+		return (printf("Error inicializando los datos\n"), 1);
 }
