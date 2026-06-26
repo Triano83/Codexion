@@ -49,4 +49,8 @@ int	main(int argc, char **argv)
 		return (printf("Error de memoria en malloc\n"), 1);
 	if (!init_dongles(&data) || !init_coders(&data))
 		return (printf("Error inicializando los datos\n"), 1);
+	if (!start_simulation(&data))
+		return (1);
+	printf("\n¡Simulación finalizada con éxito! 🎉\n");
+	return (0);
 }
